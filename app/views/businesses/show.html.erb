@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @business.name %>
+</p>
+
+<h3>Expenses</h3>
+	<% @cashflows.each do |cashflow| %>
+		<%= cashflow.name %> </br></br>
+	<% end %>
+
+
+<%= link_to 'Edit', edit_user_business_path(@user, @business) %> |
+<%= link_to 'All Businesses', user_businesses_path(@user) %> |
+<%= link_to 'Add Cashflow', new_business_cashflow_path(@business) %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Businesses for <%= @user.email %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @businesses.each do |business| %>
+      <tr>
+        <td><%= business.name %></td>
+        <td><%= business.user %></td>
+        <td><%= link_to 'Show', user_business_path(@user, business) %></td>
+        <td><%= link_to 'Edit', edit_user_business_path(@user, business) %></td>
+        <td><%= link_to 'Destroy', user_business_path(@user, business), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business', new_user_business_path(@user, @business) %>
